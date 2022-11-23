@@ -1,7 +1,6 @@
-.balance-table {
-  height: 20%;
-  overflow: hidden;
-  overflow-y: scroll;
+:host {
+  padding: 20px;
+  display: block;
 }
 
 table {
@@ -14,10 +13,14 @@ table {
 
   td {
     background-color: #eee;
+    padding: 10px;
+    font-size: 12px;
   }
 
   th {
     background-color: #0a2363;
     color: #fff;
+    padding: 10px;
+    font-size: 14px;
   }
 }

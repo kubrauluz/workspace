@@ -4,12 +4,16 @@
     <div class="flex-spacer"></div>
     <div mat-tab-nav-bar>
       <a mat-tab-link [routerLink]="'/markets'"> {{'Marketler'}} </a>
+      <a *ngIf="(user$ | async)" mat-tab-link [routerLink]="'/profile/bakiyeler'"> {{'Bakiyeler'}} </a>
+      <a *ngIf="(user$ | async)" mat-tab-link [routerLink]="'/profile/acik-emirler'"> {{'Açık Emirler'}} </a>
     </div>
     <div class="flex-spacer"></div>
     <button *ngIf="(user$ | async)" mat-flat-button [routerLink]="'/profile'" color="primary" class="login-button">
       <mat-icon>supervised_user_circle</mat-icon>
     </button>
     <button *ngIf="!(user$ | async)" mat-flat-button routerLink="/auth/login" color="primary">Giriş Yap</button>
-    <button *ngIf="(user$ | async)" mat-flat-button (click)="logOut()" color="primary" style="margin-left: 5px;">Çıkış Yap</button>
+    <button *ngIf="(user$ | async)" mat-flat-button (click)="logOut()" color="primary" style="margin-left: 5px;">Çıkış
+      Yap
+    </button>
   </nav>
 </header>

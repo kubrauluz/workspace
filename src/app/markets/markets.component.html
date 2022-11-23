@@ -1,3 +1,6 @@
+<mat-form-field class="mb-2" appearance="fill">
+  <input matInput ngModel type="text" name="search" (ngModelChange)="searchText$.next($event);" placeholder="search">
+</mat-form-field>
 <section class="market-table">
   <table>
     <tr>
@@ -9,52 +12,18 @@
       <th>En Yüksek Fiyat</th>
       <th>En Düşük Fiyat</th>
     </tr>
-    <tr *ngFor="let market of (markets$ | async); let index = index">
+    <tr *ngFor="let market of (markets$ | async); let index = index" [hidden]="searchText$.value && !(market.marketCode.toLowerCase().includes(searchText$.value.toLowerCase()))">
       <td>{{index + 1}}</td>
-      <td [routerLink]="['./', market?.marketCode]" (click)="selectMarket(market.marketCode)">{{market?.marketCode}}</td>
+      <td [routerLink]="['./', market?.marketCode]">{{market?.marketCode}}</td>
       <td>{{market?.currentQuote | currency: ' ' : ' '}}</td>
       <td>{{market?.change24h | currency: ' ' : ' '}}</td>
-      <td [ngStyle]="{'color': +market.change24hPercent < 0 ? 'red' : +market.change24hPercent > 0 ? 'green' : 'black'}">{{market?.change24hPercent}}</td>
+      <td
+        [ngStyle]="{'color': +market.change24hPercent < 0 ? 'red' : +market.change24hPercent > 0 ? 'green' : 'black'}">{{market?.change24hPercent}}</td>
       <td>{{market?.highestQuote24h | currency: ' ' : ' '}}</td>
       <td>{{market?.lowestQuote24h | currency: ' ' : ' '}}</td>
     </tr>
 
   </table>
 </section>
-
-<!--<table mat-table [dataSource]="markets$ | async" class="mat-elevation-z8">-->
-<!--  <ng-container matColumnDef="marketCode">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Market Kodu </th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{element.marketCode}} </td>-->
-<!--  </ng-container>-->
-
-<!--  <ng-container matColumnDef="currentQuote">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Güncel Fiyat </th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{element.currentQuote}} </td>-->
-<!--  </ng-container>-->
-
-<!--  <ng-container matColumnDef="change24h">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Fiyat Değişimi </th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{element.change24h}} </td>-->
-<!--  </ng-container>-->
-
-<!--  <ng-container matColumnDef="change24hPercent">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Değişim Oranı </th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{element.change24hPercent}} </td>-->
-<!--  </ng-container>-->
-
-<!--  <ng-container matColumnDef="highestQuote24h">-->
-<!--    <th mat-header-cell *matHeaderCellDef> En Yüksek Fiyat </th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{element.highestQuote24h}} </td>-->
-<!--  </ng-container>-->
-
-<!--  <ng-container matColumnDef="lowestQuote24h">-->
-<!--    <th mat-header-cell *matHeaderCellDef> En Düşük Fiyat </th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{element.lowestQuote24h}} </td>-->
-<!--  </ng-container>-->
-
-<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-<!--  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
-<!--</table>-->
 
 <router-outlet></router-outlet>

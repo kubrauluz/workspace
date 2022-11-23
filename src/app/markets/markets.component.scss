@@ -1,5 +1,10 @@
+:host {
+  padding: 20px;
+  display: block;
+}
+
 .market-table {
-  height: 20%;
+  height: 500px;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -14,10 +19,18 @@ table {
 
   td {
     background-color: #eee;
+    padding: 10px;
+    font-size: 12px;
   }
 
   th {
     background-color: #0a2363;
     color: #fff;
+    padding: 10px;
+    font-size: 14px;
   }
+}
+
+mat-form-field {
+  width: 424px;
 }

@@ -4,6 +4,9 @@ import { MarketsComponent } from './markets.component';
 import { MarketDetailComponent } from './market-detail/market-detail.component';
 import {MarketsRoutingModule} from "./markets-routing.module";
 import {MatTableModule} from "@angular/material/table";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -15,7 +18,10 @@ import {MatTableModule} from "@angular/material/table";
   imports: [
     CommonModule,
     MarketsRoutingModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ]
 })
 export class MarketsModule {}
