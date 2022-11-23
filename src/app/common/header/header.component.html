@@ -1,0 +1,15 @@
+<header>
+  <nav class="container-xxl">
+    <img src="/assets/images/bitlo_logo_white.png" alt="" routerLink="./">
+    <div class="flex-spacer"></div>
+    <div mat-tab-nav-bar>
+      <a mat-tab-link [routerLink]="'/markets'"> {{'Marketler'}} </a>
+    </div>
+    <div class="flex-spacer"></div>
+    <button *ngIf="(user$ | async)" mat-flat-button [routerLink]="'/profile'" color="primary" class="login-button">
+      <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <button *ngIf="!(user$ | async)" mat-flat-button routerLink="/auth/login" color="primary">Giriş Yap</button>
+    <button *ngIf="(user$ | async)" mat-flat-button (click)="logOut()" color="primary" style="margin-left: 5px;">Çıkış Yap</button>
+  </nav>
+</header>

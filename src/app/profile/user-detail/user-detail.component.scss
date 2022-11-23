@@ -1,0 +1,39 @@
+table {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 400px;
+
+  td {
+    background-color: #eee;
+  }
+
+  th {
+    background-color: #0a2363;
+    color: #fff;
+  }
+}
+
+.profile-routing {
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 16px 0;
+
+  }
+
+  ::ng-deep .mat-tab-links {
+    justify-content: flex-end;
+  }
+
+  ::ng-deep .mat-tab-link {
+    color: #0a2363;
+  }
+}
+
+
+
+

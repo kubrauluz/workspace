@@ -1,0 +1,33 @@
+<section>
+  <table>
+    <tr>
+      <th>İsim</th>
+      <td>{{(user$ | async)?.firstName}}</td>
+    </tr>
+    <tr>
+      <th>Soyisim</th>
+      <td>{{(user$ | async)?.lastName}}</td>
+    </tr>
+    <tr>
+      <th>Doğum Tarihi</th>
+      <td>{{(user$ | async)?.dateOfBirth | date: 'dd.MM.yy'}}</td>
+    </tr>
+    <tr>
+      <th>Telefon Numarası</th>
+      <td>{{(user$ | async)?.phoneNumber}}</td>
+    </tr>
+    <tr>
+      <th>T.C</th>
+      <td>{{(user$ | async)?.identityNumber}}</td>
+    </tr>
+    <tr>
+      <th>Güncelleme Tarihi</th>
+      <td>{{(user$ | async)?.updateDate}}</td>
+    </tr>
+
+  </table>
+  <div mat-tab-nav-bar class="profile-routing">
+    <a mat-tab-link [routerLink]="'bakiyeler'"> {{'Bakiyeler'}} </a>
+    <a mat-tab-link [routerLink]="'acik-emirler'">{{'Açık Emirler'}}</a>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+<form #form="ngForm" (ngSubmit)="submit(form, form?.value)">
+  <mat-form-field appearance="fill">
+    <input matInput ngModel type="email" email name="identifier" placeholder="Kullanıcı Adı" required>
+  </mat-form-field>
+  <mat-form-field class="mb-2" appearance="fill">
+    <input matInput ngModel type="password" name="password" placeholder="Parola" required>
+  </mat-form-field>
+  <button mat-flat-button color="primary" type="submit" [disabled]="form.touched && form.invalid"> Giriş Yap </button>
+  <mat-error *ngIf="form.touched && form.invalid">Lütfen gerekli alanları doldurunuz</mat-error>
+</form>

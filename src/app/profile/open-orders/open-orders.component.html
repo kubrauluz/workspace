@@ -1,0 +1,22 @@
+<section class="orders-table">
+  <table>
+    <tr>
+      <th>Market Kodu</th>
+      <th>Kullanıcı Emri</th>
+      <th>Emir Verme Tarihi</th>
+      <th>Emir Fiyatı</th>
+      <th>İşlem Fiyatı</th>
+      <th>Gerçekleşen Emir Miktarı</th>
+      <th>Gerçekleşen Emir Oranı</th>
+    </tr>
+    <tr *ngFor="let openOrder of (openOrders$ | async)?.openOrders">
+      <td>{{openOrder?.marketCode}}</td>
+      <td>{{openOrder?.orderSide}}</td>
+      <td>{{openOrder?.orderDate | date: 'dd.MM.yy'}}</td>
+      <td>{{openOrder?.price}}</td>
+      <td>{{openOrder?.orderAmount | currency: '' : ''}}</td>
+      <td>{{openOrder?.fillAmount | currency: '' : ''}}</td>
+      <td>%{{openOrder?.fillPercent?.toFixed(2)}}</td>
+    </tr>
+  </table>
+</section>

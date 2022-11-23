@@ -1,0 +1,23 @@
+.balance-table {
+  height: 20%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+table {
+  width: 100%;
+
+  tr {
+    text-align: center;
+    overflow-y: scroll;
+  }
+
+  td {
+    background-color: #eee;
+  }
+
+  th {
+    background-color: #0a2363;
+    color: #fff;
+  }
+}

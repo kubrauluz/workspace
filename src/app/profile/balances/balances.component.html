@@ -1,0 +1,16 @@
+<section class="balance-table">
+  <table>
+    <tr>
+      <th>Logo</th>
+      <th>Para Birimi</th>
+      <th>Kullanılabilir Miktar</th>
+      <th>Türk Lirası Cinsinden Kullanılabilir Miktar</th>
+    </tr>
+    <tr *ngFor="let balance of (balances$ | async)?.balances">
+      <td>LOGO</td>
+      <td>{{balance?.assetCode}}</td>
+      <td>{{balance?.availableAmount | currency: ' ' : ' '}}</td>
+      <td>{{balance?.availableAmountTRYValue | currency: ' ' : ' '}}</td>
+    </tr>
+  </table>
+</section>

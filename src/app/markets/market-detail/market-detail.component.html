@@ -1,0 +1,12 @@
+<div>
+  <h1>Market Detayı</h1>
+  <ul>
+    <li>{{(selectedMarket$ | async)?.marketCode}}</li>
+    <li>{{(selectedMarket$ | async)?.currentQuote | currency: ' ' : ' '}}</li>
+    <li>{{(selectedMarket$ | async)?.change24h | currency: ' ' : ' '}}</li>
+    <li>{{(selectedMarket$ | async)?.change24hPercent}}</li>
+    <li>{{(selectedMarket$ | async)?.highestQuote24h | currency: ' ' : ' '}}</li>
+    <li>{{(selectedMarket$ | async)?.lowestQuote24h | currency: ' ' : ' '}}</li>
+    <li>{{(selectedMarket$ | async)?.weightedAverage24h | currency: ' ' : ' '}}</li>
+  </ul>
+</div>
